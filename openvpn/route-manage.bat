@@ -1,4 +1,4 @@
-@Echo Off&Title Ñ¸À×9
+@Echo Off&Title sicdt
 cd /d %~dp0
 mode con cols=42 lines=22
 color 2F
