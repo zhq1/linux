@@ -1,0 +1,1 @@
+bash health.sh >> `date +"%Y%m%d%H%M%S"`.txt
