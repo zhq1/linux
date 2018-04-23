@@ -4,3 +4,9 @@
 
 #openvpn启动
 nohup openvpn  --config /etc/openvpn/client/client.ovpn >/dev/null 2>&1 &
+
+
+
+chmod +x /etc/init.d/autostart.sh 
+chkconfig --add autostart.sh 
+chkconfig autostart.sh on
