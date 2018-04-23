@@ -1,2 +1,2 @@
 #!/bin/bash
-openvpn --daemon --config /etc/openvpn/conf/vpn.conf > /var/log/openvpn_client.log
+nohup openvpn  --config /etc/openvpn/client/client.ovpn >/dev/null 2>&1 &
