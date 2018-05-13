@@ -1,3 +1,22 @@
+#svn迁移记录
+#yum安装svn
+yum install -y subversion
+mkdir -p /var/svn/svnrepos
+svnadmin create /var/svn/svnrepos
+cd /var/svn/svnrepos/conf/
+
+#备份数据
+svnadmin dump svnrepos > dumpfile
+
+#导入数据
+svnadmin load /var/svn/svnrepos/ < dumpfile
+
+svnserve -d -r /var/svn/svnrepos
+chmod 777 /opt/pro.sh
+#启动守护脚本
+nohup /opt/pro.sh >/dev/null 2>&1 &
+#nohup ./startWebLogic.sh  >  app.log    2>&1     & 
+
 centos6.5安装svn
 #yum安装svn服务
 yum install subversion
