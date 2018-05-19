@@ -81,3 +81,10 @@ kubectl apply -f calico.yaml
 wget https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 kubectl create -f kube-flannel.yml
 kubectl get pods --all-namespaces -o wide
+
+
+#k8s起不来的问题 过滤出问题的pods
+kubectl get pods -n kube-system | grep -v Running
+#查看calico-node-8ncjv的日志
+kubectl describe pod calico-node-8ncjv -n kube-system
+kubectl delete pod calico-node-8ncjv -n kube-system
