@@ -1,7 +1,7 @@
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 wget https://raw.githubusercontent.com/21ki/vos/master/aliyun-sysctl.conf 
 mv aliyun-sysctl.conf /etc/sysctl.conf
-
+hostnamectl set-hostname master
 
 systemctl stop firewalld  && systemctl disable firewalld  
 
