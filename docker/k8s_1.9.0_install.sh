@@ -68,6 +68,14 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 source /etc/profile
 kubectl get pods --all-namespaces
 kubectl get pods --all-namespaces -o wide
+#以yawl格式输出pod的详细信息
+kubectl get po nginx-8586cf59-7sqjh -o yaml
+#以jison格式输出pod的详细信息
+kubectl get po nginx-8586cf59-7sqjh -o json
+#定义直接获取指定内容的值
+kubectl get po nginx-8586cf59-7sqjh -o=custom-columns=LABELS:.metadata.labels.app
+#查看pod没有run的原因和get的差别再次
+kubectl describe pods nginx-8586cf59-7sqjh
 
 
 #安装calico网络
