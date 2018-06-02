@@ -78,7 +78,8 @@ kubectl get po nginx-8586cf59-7sqjh -o=custom-columns=LABELS:.metadata.labels.ap
 kubectl logs  httpd-8576c89d7-qzsln
 #查看pod没有run的原因和get的差别再次
 kubectl describe pods nginx-8586cf59-7sqjh
-
+#修改pod内存cpu
+kubectl edit deploy bs-fl-ec-active-provide
 
 #安装calico网络
 kubectl apply -f https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/rbac.yaml
