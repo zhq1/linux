@@ -74,6 +74,8 @@ kubectl get po nginx-8586cf59-7sqjh -o yaml
 kubectl get po nginx-8586cf59-7sqjh -o json
 #定义直接获取指定内容的值
 kubectl get po nginx-8586cf59-7sqjh -o=custom-columns=LABELS:.metadata.labels.app
+#查看pod日志
+kubectl logs  httpd-8576c89d7-qzsln
 #查看pod没有run的原因和get的差别再次
 kubectl describe pods nginx-8586cf59-7sqjh
 
