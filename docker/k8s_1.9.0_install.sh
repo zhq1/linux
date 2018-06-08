@@ -82,7 +82,8 @@ kubectl describe pods nginx-8586cf59-7sqjh
 kubectl edit deploy bs-fl-ec-active-provide
 #查看deployment启动日志
 kubectl describe deployment bs-fl-ec-personal-provide
-
+#删除deployment下的nginx服务
+kubectl delete deployment nginx-deployment
 
 #安装calico网络
 kubectl apply -f https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/rbac.yaml
