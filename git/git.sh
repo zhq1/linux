@@ -6,6 +6,19 @@ git config --global user.email "fuhua_qa@example.com"
 git add .
 git add xiaofan
 git commit -m '201806131117'
+cat .git/config 
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+
+[receive]
+        denyCurrentBranch = ignore
+#获取缓存数据        
+git reset --hard
+
+
 
 
 
