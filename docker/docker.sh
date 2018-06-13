@@ -8,3 +8,9 @@ docker start $(docker ps -a -q)
 git clone https://github.com/deviantony/docker-elk.git
 cd docker-elk/
 docker-compose up -d
+
+#docker解决中文乱码问题
+yum install kde-l10n-Chinese glibc-common -y
+echo " export LANG=zh_CN.UTF-8" >> /root/.bashrc
+export LANG=zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
