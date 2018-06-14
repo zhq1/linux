@@ -14,3 +14,8 @@ yum install kde-l10n-Chinese glibc-common -y
 echo " export LANG=zh_CN.UTF-8" >> /root/.bashrc
 export LANG=zh_CN.UTF-8
 export LC_ALL=zh_CN.UTF-8
+
+#抓包分析
+yum install -y tcpdump
+tcpdump -i any port 8888
+tcpdump -i any  host 192.168.1.178  and port 8888
