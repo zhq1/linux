@@ -2,8 +2,6 @@
 yum install -y ipmitool
 ipmitool lan print
 ipmitool lan set 1 ipaddr 192.168.2.121
-ipmitool lan set 1 mask 22
-ipmitool lan set 1 mask 255.255.252.0
 ipmitool lan set 1 netmask 255.255.252.0
 ipmitool lan set 1 defgw ipaddr 192.168.1.1
 ipmitool mc reset cold
