@@ -15,6 +15,11 @@ echo " export LANG=zh_CN.UTF-8" >> /root/.bashrc
 export LANG=zh_CN.UTF-8
 export LC_ALL=zh_CN.UTF-8
 
+
+#启动数据库
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /home/mysql/data:/var/lib/mysql -d mysql
+docker run -p 3306:3306 --name mymysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6
+
 #抓包分析
 yum install -y tcpdump
 tcpdump -i any port 8888
