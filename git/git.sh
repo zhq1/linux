@@ -25,3 +25,8 @@ git reset --hard
 git clone  root@192.168.3.177:/root/myki/.git
 git pull  root@192.168.3.177:/root/myki/.git
 git clone -b master root@49.4.64.59:/var/workspace/src/dev-tool/.git
+
+
+#huawei拉取代码
+git checkout .
+git pull --rebase origin master
