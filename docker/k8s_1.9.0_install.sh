@@ -90,7 +90,9 @@ kubectl apply -f https://docs.projectcalico.org/v2.6/getting-started/kubernetes/
 curl https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/calico.yaml -o calico.yaml
 kubectl apply -f calico.yaml
 
-
+sudo wget -O /usr/local/bin/calicoctl https://github.com/projectcalico/calicoctl/releases/download/v1.6.4/calicoctl
+sudo chmod +x /usr/local/bin/calicoctl
+chmod +x /usr/local/bin/calicoctl
 
 #安装flannel网络
 wget https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
