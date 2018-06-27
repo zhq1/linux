@@ -103,3 +103,19 @@ kubectl get pods -n kube-system | grep -v Running
 #查看calico-node-8ncjv的日志
 kubectl describe pod calico-node-8ncjv -n kube-system
 kubectl delete pod calico-node-8ncjv -n kube-system
+
+#创建nginx
+kubectl create -f nginx-deployment.yaml --record
+#获取deployment的pod
+kubectl get deployments
+kubectl get rs
+kubectl get pods --show-labels
+kubectl describe deployments
+kubectl describe deployments nginx
+kubectl get pods --all-namespaces -owide
+kubectl delete nginx-deployment-6c54bd5869-8v4c6
+
+#删除
+kubectl delete -f nginx-deployment.yaml
+kubectl scale deployment nginx-deployment --replicas 10
+kubectl delete deployment nginx-deployment
