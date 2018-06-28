@@ -30,3 +30,7 @@ git clone -b master root@49.4.64.59:/var/workspace/src/dev-tool/.git
 #huawei拉取代码
 git checkout .
 git pull --rebase origin master
+git log
+git rebase --continue
+git reset a0d0b32f37219f5e3dd690434584067cffcf90d7
+git diff
