@@ -1,0 +1,60 @@
+#创建储存密码的文件夹
+mkdir /opt/registry-var/auth/
+#创建登陆私有库的用户和密码
+docker run --entrypoint htpasswd registry -Bbn cheche xiaofan@1  >> /opt/registry-var/auth/htpasswd
+#启动私有库
+docker run -d -p 5000:5000 --restart=always   -v /opt/registry-var/auth/:/auth/   -e "REGISTRY_AUTH=htpasswd"   -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm"   -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd   -v /opt/registry-var/:/var/lib/registry/   registry
+#登陆仓库
+docker login 192.168.3.223:5000
+#私有库报错处理办法
+Error response from daemon: Get https://192.168.3.223:5000/v2/: http: server gave HTTP response to HTTPS client
+vim /usr/lib/systemd/system/docker.service 
+ExecStart=/usr/bin/dockerd --insecure-registry 192.168.3.223:5000
+
+#重启导入配置
+systemctl daemon-reload
+systemctl restart docker
+
+
+
+
+#一键安装Harbor
+#curl安装docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+#python安装docker-compose
+yum -y install python-pip
+pip install -U docker-compose
+
+#在线安装
+wget https://github.com/vmware/harbor/releases/download/0.5.0/harbor-online-installer-0.5.0.tgz
+
+#离线安装包
+wget https://github.com/vmware/harbor/releases/download/0.5.0/harbor-offline-installer-0.5.0.tgz
+#解压
+tar -xzf harbor-online-installer-0.5.0.tgz
+
+#进入解压目录
+cd harbor
+harbor.cfg
+修改ip
+hostname = 本地ip
+#运行安装脚本
+hostname = 192.168.3.223
+
+帐号密码
+admin/Harbor12345
+
+由于默认安装我们使用的是HTTP协议，需要在docker客户端加入信任私有仓库地址，编辑vi /etc/sysconfig/docker
+修改配置INSECURE_REGISTRY 加入地址 192.168.10.10,格式为--insecure-registry 仓库地址 多个以空格隔开
+
+INSECURE_REGISTRY='--insecure-registry 192.168.10.10:5000 --insecure-registry 192.168.10.10'
+测试
+
+#镜像仓库的用户
+$ docker login 192.168.10.10
+
+#将镜像打一个tag,格式必须为 docker push [私库地址]/[项目名]/镜像名称:tag
+$ docker tag 镜像id reg.yourdomain.com/myproject/myrepo:mytag
+
+$ docker push reg.yourdomain.com/myproject/myrepo:mytag
+
