@@ -17,7 +17,8 @@ gitlab-ctl start
 
 #默认web登陆密码
 root 和 5iveL!fe
-
+#文档摘自
+https://www.cnblogs.com/weifeng1463/p/7714492.html
 
 
 GitLab常用命令
