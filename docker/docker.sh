@@ -24,3 +24,25 @@ docker run -p 3306:3306 --name mymysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/lo
 yum install -y tcpdump
 tcpdump -i any port 8888
 tcpdump -i any  host 192.168.1.178  and port 8888
+
+
+
+#docker查看cpu和内存状态
+#摘自  https://blog.csdn.net/pdw2009/article/details/78137759
+#源码地址 https://github.com/docker/libcontainer/blob/v1.2.0/cgroups/fs/memory.go#L39
+#利用ctop查看docker容器的状态
+wget https://githup.com/bcicen/ctop//download/v0.5/ctop-0.5-linux-amd64 -O ctop
+mv ctop /usr/local/bin
+chmod +x /usr/local/bin/ctop
+
+ctop
+#另一种查看方式 docker默认的stats
+docker stats [OPTIONS] [CONTAINER...]
+#查看所有容器运行状态
+docker stats -a
+
+
+
+#docker限制资源
+#更新内存限制
+docker update -m 2048m <name>
