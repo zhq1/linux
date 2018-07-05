@@ -22,3 +22,6 @@ maven -version
  
  
 java -jar jenkins.war --ajp13Port=-1 --httpPort=8090
+
+
+./jenkins_service.sh start 
