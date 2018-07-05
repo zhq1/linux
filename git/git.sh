@@ -34,3 +34,11 @@ git log
 git rebase --continue
 git reset a0d0b32f37219f5e3dd690434584067cffcf90d7
 git diff
+
+
+#githup
+#克隆远程仓库
+git clone https://github.com/21ki/linux.git
+git add .
+git commit -am "更新git上传githup"
+git push origin master
