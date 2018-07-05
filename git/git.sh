@@ -40,5 +40,7 @@ git diff
 #克隆远程仓库
 git clone https://github.com/21ki/linux.git
 git add .
+git config --global user.email "hujialou@1nth.com"
+git config --global user.name "Myki"
 git commit -am "更新git上传githup"
 git push origin master
