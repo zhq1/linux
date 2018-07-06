@@ -63,3 +63,7 @@ docker run -m 512m --memory-swap 1G -it -p 58080:8080 --restart=always --name bv
  docker build -t myki:2018 -f Dockerfile.fwas-operations-admin .
  #docker 删除镜像
  docker rmi myki:2018
+ 
+ 
+ docker tag java-zip-new:latest cheche/java-zip-new:20180706
+ docker push cheche/java-zip-new:20180706
