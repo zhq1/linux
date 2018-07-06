@@ -64,6 +64,11 @@ docker run -m 512m --memory-swap 1G -it -p 58080:8080 --restart=always --name bv
  #docker 删除镜像
  docker rmi myki:2018
  
- 
+ #docker推送到githup
  docker tag java-zip-new:latest cheche/java-zip-new:20180706
  docker push cheche/java-zip-new:20180706
+ 
+ #docker推送到阿里云私有库
+ docker login --username=hi31813309@aliyun.com registry.cn-hangzhou.aliyuncs.com
+ docker tag tomcat-8:latest registry.cn-hangzhou.aliyuncs.com/cheche/tomcat-8:20180706
+ docker push registry.cn-hangzhou.aliyuncs.com/cheche/tomcat-8:20180706
