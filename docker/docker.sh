@@ -55,3 +55,11 @@ docker run -m 512m --memory-swap 1G -it -p 58080:8080 --restart=always --name bv
        always - 无论退出状态是如何，都重启容器；
  #如果创建时未指定，可以通过update命令设置
  docker update --restart=always xxx
+ 
+ 
+ 
+ 
+ #docker 创建镜像
+ docker build -t myki:2018 -f Dockerfile.fwas-operations-admin .
+ #docker 删除镜像
+ docker rmi myki:2018
