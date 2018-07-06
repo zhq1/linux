@@ -23,7 +23,8 @@ maven -version
 
 
 wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.121.1/jenkins.war 
-java -jar jenkins.war --ajp13Port=-1 --httpPort=8090
-
+#java -jar jenkins.war --ajp13Port=-1 --httpPort=8090
+#启动命令
+java -Dcom.sun.akuma.Daemon=daemonized -Djava.awt.headless=true -DJENKINS_HOME=/home/data/jenkins -jar /home/data/soft/jenkins.war --logfile=/var/log/jenkins/jenkins.log --webroot=/var/cache/jenkins/war --daemon --httpPort=8080 --debug=5 --handlerCountMax=100 --handlerCountMaxIdle=20
 
 ./jenkins_service.sh start 
