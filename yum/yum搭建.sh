@@ -1,3 +1,7 @@
+#腾讯云wget递归下载
+nohup wget -nc -np -c -r -v --reject=html --ignore-tags=robots.txt http://yum.1nth.com/base/   /dev/null 2>&1 &
+
+
 yum install nginx
 #配置nginx配置文件
 vim /etc/nginx/nginx.conf
