@@ -47,7 +47,7 @@ chmod 600 /etc/rsyncd.passwd
 
 客户端
 #接收
-rsync -avzP --delete --password-file=/etc/rsyncd.pwd 140.143.237.96::ftp_backup /data/ftp/ > /dev/null 2>&1
+rsync -avzP --delete --password-file=/etc/rsyncd.pwd root@140.143.237.96::ftp_backup /data/ftp/ > /dev/null 2>&1
 #发送
 rsync -avzP /root/cheche  root@140.143.237.96::epel --password-file=/etc/rsyncd.passwd
 

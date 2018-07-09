@@ -1,0 +1,2 @@
+ansible business_node -m ping --private-key=/root/KeyPair-Online.pem
+ansible business_node -m copy  -a  "src=/home/paas/docker_update/  dest=/home/paas/docker_update/ mode=700 owner=root group=root" --private-key=/root/KeyPair-Online.pem
