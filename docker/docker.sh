@@ -72,3 +72,10 @@ docker run -m 512m --memory-swap 1G -it -p 58080:8080 --restart=always --name bv
  docker login --username=hi31813309@aliyun.com registry.cn-hangzhou.aliyuncs.com
  docker tag tomcat-8:latest registry.cn-hangzhou.aliyuncs.com/cheche/tomcat-8:20180706
  docker push registry.cn-hangzhou.aliyuncs.com/cheche/tomcat-8:20180706
+ 
+ 
+ 
+ #docker 导出
+ docker save -o java-zip.tar.gz java-zip
+ #docker 导入
+ docker load -i java-zip.tar.gz

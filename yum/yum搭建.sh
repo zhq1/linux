@@ -1,5 +1,7 @@
 #腾讯云wget递归下载
-nohup wget -nc -np -c -r -v --reject=html --ignore-tags=robots.txt http://yum.1nth.com/base/   /dev/null 2>&1 &
+wget -nc -np -c -r -v --reject=html --ignore-tags=robots.txt http://mirrors.tencentyun.com/centos/5.11/os/
+wget -nc -np -c -r -v --reject=html --ignore-tags=robots.txt http://mirrors.tencentyun.com/epel/5/
+#nohup wget -nc -np -c -r -v --reject=html --ignore-tags=robots.txt http://yum.1nth.com/base/   /dev/null 2>&1 &
 
 
 yum install nginx
