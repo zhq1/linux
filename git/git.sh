@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+#连接githup
+ssh-keygen -t rsa -C "21kixc@gmail.com"
+#oopy id_rsa.pub到githup上
+#test
+ssh -T git@github.com
+
+
 yum install -y git
 git init
 git config --global user.name "fuhua_qa"
