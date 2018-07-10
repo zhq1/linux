@@ -4,7 +4,8 @@ ssh-keygen -t rsa -C "21kixc@gmail.com"
 #oopy id_rsa.pub到githup上
 #test
 ssh -T git@github.com
-
+#解决git每次输入密码的问题
+git config --global credential.helper store
 
 yum install -y git
 git init
