@@ -1,8 +1,12 @@
-官网下载地址：http://mirrors.jenkins.io/war-stable/latest/jenkins.war
-java -jar jenkins.war　
-wget jdk-8u121-linux-x64.tar.gz
+#jenkins搭建
+#官网下载地址：http://mirrors.jenkins.io/war-stable/latest/jenkins.war　
+#下载jdk
+wget https://1nth.oss-cn-beijing.aliyuncs.com/jdk-8u121-linux-x64.tar.gz
+#下载maven
 wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
 tar -zxvf *.tar.gz -C /usr/local/
+
+#全局变量
 vim /etc/profile
 
 #java环境变量
@@ -25,6 +29,7 @@ maven -version
 wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.121.1/jenkins.war 
 #java -jar jenkins.war --ajp13Port=-1 --httpPort=8090
 #启动命令
+#建议用此命令定制一些参数
 nohup java -Dcom.sun.akuma.Daemon=daemonized -Djava.awt.headless=true -DJENKINS_HOME=/home/data/jenkins -jar /home/data/soft/jenkins.war --logfile=/var/log/jenkins/jenkins.log --webroot=/var/cache/jenkins/war --daemon --httpPort=8080 --debug=5 --handlerCountMax=100 --handlerCountMaxIdle=20 /dev/null 2>&1 &
 
-./jenkins_service.sh start 
+#./jenkins_service.sh start 
