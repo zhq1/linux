@@ -1,0 +1,22 @@
+FROM centos:latest
+MAINTAINER Myki "root@1nth.com"
+ 
+# 设置当前工具目录
+# 该命令不会新增镜像层
+#WORKDIR /home
+#添加jdk和tomcat
+ADD jdk1.8.0_121 /usr/local/jdk
+ADD apache-tomcat-8.0.48 /usr/local/tomcat
+
+# 设置环境变量
+ENV JAVA_HOME /usr/local/jdk
+ENV CATALINA_HOME /usr/local/tomcat
+ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin
+ 
+# 暴露tomcat 8080端口
+EXPOSE 8080
+ 
+ENTRYPOINT /usr/local/tomcat/bin/startup.sh && tail -f /usr/local/tomcat/logs/catalina.out
+ 
+# 创建容器启动tomcat
+CMD ["/home/tomcat/bin/startup.sh"]
