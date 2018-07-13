@@ -6,6 +6,9 @@ ssh-keygen -t rsa -C "21kixc@gmail.com"
 ssh -T git@github.com
 #解决git每次输入密码的问题
 git config --global credential.helper store
+#把key传入git服务器
+#ssh-copy-id -i ./id_rsa root@10.200.240.137
+ssh-copy-id -i id_rsa root@10.200.240.137
 
 yum install -y git
 git init
