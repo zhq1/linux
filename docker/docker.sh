@@ -1,3 +1,5 @@
+#端口查看
+lsof -i -n -P | grep 8080
 #查找docker ip
 docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
