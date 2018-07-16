@@ -51,7 +51,9 @@ rsync -avzP --delete --password-file=/etc/rsyncd.pwd root@140.143.237.96::ftp_ba
 #发送
 rsync -avzP /root/cheche  root@140.143.237.96::epel --password-file=/etc/rsyncd.passwd
 
-/usr/bin/rsync -auvrtzopgP --progress --password-file=/etc/rsync_client.pwd rsyncuser@172.16.250.200::module_test /tmp/ 
+
+/usr/bin/rsync -auvrtzopgP --progress --password-file=/etc/rsyncd.passwd root@140.143.237.96::ftp_backup /tmp
+
 
 
 #常见错误
