@@ -54,6 +54,9 @@ rsync -avzP /root/cheche  root@140.143.237.96::epel --password-file=/etc/rsyncd.
 
 /usr/bin/rsync -auvrtzopgP --progress --password-file=/etc/rsyncd.passwd root@140.143.237.96::ftp_backup /tmp
 
+#同机器拷贝
+nohup rsync -av /var/opt/gitlab/git-data/ /root/data02/git-data/ &
+
 
 
 #常见错误
