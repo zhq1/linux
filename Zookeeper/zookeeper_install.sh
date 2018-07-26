@@ -56,3 +56,7 @@ vi /data/server3/zookeeper-3.4.13/data/myid
 bash /data/server1/zookeeper-3.4.13/bin/zkServer.sh start
 bash /data/server2/zookeeper-3.4.13/bin/zkServer.sh start
 bash /data/server3/zookeeper-3.4.13/bin/zkServer.sh start
+#查询命令
+bash zkServer.sh status
+#查询启动日志
+cat /data/server1/zookeeper-3.4.13/bin/zookeeper.out
