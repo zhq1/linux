@@ -1,0 +1,14 @@
+# 配置github.com
+Host github.com                 
+    HostName github.com
+    IdentityFile C:\Users\Administrator\.ssh\\id_rsa_githup
+    PreferredAuthentications publickey
+    User Myki
+
+# 配置huawei_cloud_dev_tools 
+Host 10.200.240.137 
+    HostName 10.200.240.137
+    IdentityFile  C:\Users\Administrator\.ssh\\id_rsa_huawei
+    PreferredAuthentications publickey
+    User root
+
