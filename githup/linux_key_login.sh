@@ -8,7 +8,6 @@ su test
 
 3.生成密钥对
 ssh-keygen -t rsa
-
 一路回车
 
 4.拷贝公钥到远程linux即A机
