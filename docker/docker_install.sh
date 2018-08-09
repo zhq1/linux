@@ -9,4 +9,4 @@ yum makecache
 #下载特定版本docker
 #下载特定版本docker
 wget https://mirrors.aliyun.com/docker-ce/linux/centos/7/x86_64/edge/Packages/docker-ce-17.06.2.ce-1.el7.centos.x86_64.rpm
-#
+#test
