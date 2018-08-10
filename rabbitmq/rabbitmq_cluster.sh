@@ -1,6 +1,7 @@
 #rabbitmq_cluster_install 此集群为伪集群
 #By Myki
 #centos 7.4  erlang 19.04    rabbitmq 3.6.10  
+#参考https://www.jb51.net/article/135989.htm
 
 #下载erlang和rabbitmq（mq为erlang语言开发故要安装erlang环境） 
 wget http://www.rabbitmq.com/releases/erlang/erlang-19.0.4-1.el7.centos.x86_64.rpm
