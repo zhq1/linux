@@ -83,3 +83,6 @@ docker run -m 512m --memory-swap 1G -it -p 58080:8080 --restart=always --name bv
  docker save -o java-zip.tar.gz java-zip
  #docker 导入
  docker load -i java-zip.tar.gz
+
+#启动所有容器
+docker start $(docker ps -a | awk '{ print $1}' | tail -n +2)
