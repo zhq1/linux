@@ -1,3 +1,21 @@
+vi /etc/sysctl.conf
+net.ipv4.ip_forward = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+
+sysctl -p
+执行sysctl -p 时出现：
+[root@localhost ~]# sysctl -p
+sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-ip6tables: No such file or directory
+sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-iptables: No such file or directory
+
+解决方法：
+[root@localhost ~]# modprobe br_netfilter
+[root@localhost ~]# ls /proc/sys/net/bridge
+bridge-nf-call-arptables bridge-nf-filter-pppoe-tagged
+bridge-nf-call-ip6tables bridge-nf-filter-vlan-tagged
+bridge-nf-call-iptables bridge-nf-pass-vlan-input-dev
+
 #备份系统原有yum源
 mkdir -p /etc/yum.repos.d/backup/
 mv -f /etc/yum.repos.d/* /etc/yum.repos.d/backup/  >/dev/null 2>&1
@@ -11,6 +29,16 @@ yum makecache
 wget https://mirrors.aliyun.com/docker-ce/linux/centos/7/x86_64/edge/Packages/docker-ce-17.06.2.ce-1.el7.centos.x86_64.rpm
 #安装docker
 yum localinstall docker-ce-17.06.2.ce-1.el7.centos.x86_64.rpm  -y
+
+
+#centos 7 
+vim /lib/systemd/system/docker.service
+找到这一行：
+ExecStart=/usr/bin/dockerd
+修改为
+ExecStart=/usr/bin/dockerd --graph=/data/docker
+
+
 #因为docker镜像被墙所以配置加速器
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
