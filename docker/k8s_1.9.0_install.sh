@@ -121,3 +121,7 @@ kubectl delete nginx-deployment-6c54bd5869-8v4c6
 kubectl delete -f nginx-deployment.yaml
 kubectl scale deployment nginx-deployment --replicas 10
 kubectl delete deployment nginx-deployment
+
+
+#查询端口映射
+ipvsadm -Ln --stats |grep 33334 -A 1
