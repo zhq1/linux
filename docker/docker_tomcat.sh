@@ -5,7 +5,7 @@ docker pull registry.cn-hangzhou.aliyuncs.com/cheche/tomcat-8:20180822
 docker tag 72515f5952c9 tomcat-8:least
 #创建dockerfile文件
 
-cat Dockerfile
+cat Dockerfile.helloworld
 FROM tomcat-8:least
 #COPY $app_dir /data/tomcat/webapps/$app
 ADD helloworld.war /data/tomcat/webapps/
@@ -16,7 +16,7 @@ EXPOSE 22 8080
 
 
 #创建images
-docker build -t helloworld -f Dockerfile .
+docker build -t helloworld:`date +"%Y%m%d%H%M"` -f Dockerfile.helloworld .
 
 #运行容器
 docker run -d -P -p 8080:8080 --name=helloworld -v /opt/logs:/data/app_log/ -v /etc/localtime:/etc/localtime  helloworld
