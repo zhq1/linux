@@ -29,6 +29,11 @@ cat .git/config
 #获取缓存数据        
 git reset --hard
 
+#warning: LF will be replaced by CRLF in pom.xml.
+The file will have its original line endings in your working directory.
+#出现这个问题 解决办法
+git config core.autocrlf false
+
 
 
 
