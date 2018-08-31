@@ -13,3 +13,7 @@ at 14:25 08/31/2018
 at> sed -i '267s/#//' nginx.conf
 Ctrl+D
 替换267行的#为空
+
+chmod 4755 /usr/bin/sudo
+
+su - webadm -c "echo 123 > /opt/logs/test.log"
