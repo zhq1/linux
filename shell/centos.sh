@@ -17,3 +17,4 @@ Ctrl+D
 chmod 4755 /usr/bin/sudo
 
 su - webadm -c "echo 123 > /opt/logs/test.log"
+su - kunshiweb -c "export JAVA_OPTS=-Xmx2048m;cd $TOMCAT_HOME/bin;$TOMCAT_HOME/bin/$TOMCAT_START >/dev/null 2>&1 &"
