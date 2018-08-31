@@ -40,3 +40,4 @@ function ntp_date ()
  ntpdate time.sicdt.com && hwclock --systohc
 }
 menu
+#sh -x 
