@@ -40,3 +40,32 @@
     }
   ]
 }
+
+
+#授权OSS单用户模式
+{
+    "Version": "1",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "oss:ListBuckets",
+            "Resource": "acs:oss:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "oss:ListObjects",
+                "oss:GetBucketAcl"
+            ],
+            "Resource": "acs:oss:*:*:shijisql-server"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "oss:GetObject",
+                "oss:GetObjectAcl"
+            ],
+            "Resource": "acs:oss:*:*:shijisql-server/*"
+        }
+    ]
+}
