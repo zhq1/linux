@@ -1,0 +1,14 @@
+FROM registry.cn-hangzhou.aliyuncs.com/cheche/tomcat-8:20180822
+#COPY paycenter.war /data/tomcat/webapps/paycenter
+ENV LANG C.UTF-8
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN source /etc/profile
+ADD MYMHOTEL_SALES_ADMIN.war /data/tomcat/webapps/
+#COPY ./paycenter/alipay/ /opt/tomcat_app/alipay/
+#COPY ./paycenter/wxsecret/ /opt/tomcat_app/wxsecret/
+#COPY ./paycenter/wxsecret_app/ /opt/tomcat_app/wxsecret_app/
+#ADD paycenter.tar.gz /opt/tomcat_app/
+ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
+ENV LANG zh_CN.UTF-8
+EXPOSE 22 8080
