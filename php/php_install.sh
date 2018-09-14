@@ -1,6 +1,45 @@
 #!/usr/bin/env bash
 #好分销系统php_win移植linux记录 因为开发年代比较久远,故版本选择还是之前选择的版本为准
-#此次环境为centos 7.4 64
+#此次环境为centos 7.5 64
+#折腾了一上午环境还是有问题查找资料显示缺少php-gd库，想编译安装发现版本太老于是搜索资料找到响应的yum源在centos7上安装测试成功
+#参考地址http://www.cnblogs.com/mangoVic/p/6393504.html
+rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+#删除原有的php包
+yum remove php.x86_64 php-cli.x86_64 php-common.x86_64 php-gd.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-pdo.x86_64
+#安装php5
+yum install php55w.x86_64 php55w-cli.x86_64 php55w-common.x86_64 php55w-gd.x86_64 php55w-ldap.x86_64 php55w-mbstring.x86_64 php55w-mcrypt.x86_64 php55w-mysql.x86_64 php55w-pdo.x86_64
+#安装php6
+yum install php56w.x86_64 php56w-cli.x86_64 php56w-common.x86_64 php56w-gd.x86_64 php56w-ldap.x86_64 php56w-mbstring.x86_64 php56w-mcrypt.x86_64 php56w-mysql.x86_64 php56w-pdo.x86_64
+#安装php7
+yum install php70w.x86_64 php70w-cli.x86_64 php70w-common.x86_64 php70w-gd.x86_64 php70w-ldap.x86_64 php70w-mbstring.x86_64 php70w-mcrypt.x86_64 php70w-mysql.x86_64 php70w-pdo.x86_64
+#安装php-fpm
+yum install php55w-fpm 
+yum install php56w-fpm 
+yum install php70w-fpm
+#log 位置
+/var/log/php-fpm
+#pid 位置
+/var/run/php-fpm/php-fpm.pid
+#配置 位置
+/etc/php-fpm.conf
+#启动 php-fpm
+php-fpm
+#重启 php-fpm
+kill -INT `cat /var/run/php-fpm/php-fpm.pid`
+#php-fpm 重启：
+kill -USR2 `cat /var/run/php-fpm/php-fpm.pid`
+
+
+---------------------------------------------------
+Mysql配置文件my.cnf路径：/etc/my.cnf 
+Nginx配置文件nginx.conf路径：/etc/nginx/nginx.conf 
+PHP配置文件php.ini路径： /etc/php.ini 
+php-fpm配置文件php-fpm.conf路径：/etc/php-fpm.conf
+---------------------------------------------------
+
+
+
 #下载安装包
 wget http://yellowcong.qiniudn.com/php-5.6.32.tar.gz
 #解压
