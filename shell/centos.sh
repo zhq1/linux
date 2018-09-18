@@ -1,3 +1,15 @@
+#centos 7开机启动
+chmod +x /etc/rc.d/rc.local
+vi /opt/init.sh
+#!/usr/bin/env bash
+modprobe -- ip_vs
+modprobe -- ip_vs_rr
+modprobe -- ip_vs_wrr
+modprobe -- ip_vs_sh
+modprobe -- nf_conntrack_ipv
+
+chmod +x /opt/init.sh
+
 hostnamectl set-hostname  test  #修改主机名
 nohup python -m SimpleHTTPServer 8001 &   #启动一个http
 #把文件夹1并且附带文件夹1拷贝到2（1和2都是文件夹）
