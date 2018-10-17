@@ -1,4 +1,18 @@
+#centos 7开机启动
+chmod +x /etc/rc.d/rc.local
+vi /opt/init.sh
+#!/usr/bin/env bash
+modprobe -- ip_vs
+modprobe -- ip_vs_rr
+modprobe -- ip_vs_wrr
+modprobe -- ip_vs_sh
+modprobe -- nf_conntrack_ipv
 
+chmod +x /opt/init.sh
+vi/etc/rc.d/rc.local
+/opt/init.sh
+yum install -y ipvsadm
+lsmod|grep ip_vs
 
 -----------------k8s 1.11.3 HA离线安装----------------------
 
