@@ -41,11 +41,20 @@ http {
 
     #gzip  on;
 server {
-    listen  10080;
-    server_name    192.168.3.106; # 自己PC的ip或者服务器的域名
+    listen  80;
+    server_name    140.143.237.96; # 自己PC的ip或者服务器的域名
     charset utf-8; # 避免中文乱码
-    root /mirrors.tencentyun.com/; # 存放文件的目录
-    location / {
+#    root /mirrors.tencentyun.com/epel/; # 存放文件的目录
+    location ^~ /epel {
+        alias /mirrors.tencentyun.com/epel/;
+        charset utf-8;
+        autoindex on; # 索引
+        autoindex_exact_size on; # 显示文件大小
+        autoindex_localtime on; # 显示文件时间
+    }
+    location ^~ /base {
+        alias /mirrors.tencentyun.com/centos/5.11/os/;
+        charset utf-8;
         autoindex on; # 索引
         autoindex_exact_size on; # 显示文件大小
         autoindex_localtime on; # 显示文件时间
@@ -55,7 +64,6 @@ server {
 
 
 }
-
 
 
 mkdir /data
